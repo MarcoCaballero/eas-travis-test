@@ -1,8 +1,0 @@
-2017-04-19 11:42:11,952 [Worker-12] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com:jcraft:0.0.1-SNAPSHOT @ C:\Users\pelox\Documents\GitHub\EAS10\JRoar\pom.xml.
-2017-04-19 11:42:12,370 [Worker-12] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /JRoar/src/main/java
-2017-04-19 11:42:12,371 [Worker-12] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /JRoar/src/test/java
-2017-04-19 11:42:12,453 [Worker-12] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Imported and configured 1 project(s) in 1 sec
-2017-04-19 11:42:14,053 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
-2017-04-19 11:42:14,054 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pelox\Documents\GitHub\EAS10\JRoar\src\main\resources
-2017-04-19 11:42:14,057 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
-2017-04-19 11:42:14,057 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\pelox\Documents\GitHub\EAS10\JRoar\src\test\resources
