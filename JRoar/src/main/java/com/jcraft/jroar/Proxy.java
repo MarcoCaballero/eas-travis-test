@@ -152,7 +152,7 @@ HttpServer.source_connections++;
 
     retry=RETRY;
 
-  loop:
+  
     while(me!=null){
       boolean eos=false;
       header=null;

@@ -69,7 +69,7 @@ class Drft{
 
     int state=101;
 
-    loop: while(true){
+    while(true){
       switch(state){
       case 101:
 	j++;
@@ -137,7 +137,7 @@ class Drft{
 	  }
 	  l1=l2;
 	}
-	break loop;
+	break;
       }
     }
   }
@@ -322,7 +322,7 @@ class Drft{
     t10=ip*ido;
 
     int state=100;
-    loop: while(true){
+    while(true){
       switch(state){
       case 101:
 	if(ido==1){
@@ -609,7 +609,7 @@ class Drft{
 	    }
 	  }
 	}
-	break loop;
+	break;
       }
     }
   }
@@ -634,7 +634,7 @@ class Drft{
       na=1-na;
 
       int state=100;
-      loop: while(true){
+      while(true){
 	switch(state){
 	case 100:
 	  if(ip!=4){
@@ -679,7 +679,7 @@ class Drft{
 	  na=0;
 	case 110:
 	  l2=l1;
-  	  break loop;
+  	  break;
 	}
       }
     }
@@ -900,7 +900,7 @@ class Drft{
 
     int state=100;
 
-    loop: while(true){
+    while(true){
       switch(state){
       case 100:
 	t10=ip*ido;
@@ -1218,7 +1218,7 @@ class Drft{
 	    t2+=ido;
 	  }
 	}
-	break loop; 
+	break; 
       }
     }
   }
@@ -1235,7 +1235,7 @@ class Drft{
 
     for(k1=0;k1<nf;k1++){
       int state=100;
-      loop: while(true){
+      while(true){
 	switch(state){
 	case 100:
 	  ip=ifac[k1 + 2];
@@ -1307,7 +1307,7 @@ class Drft{
 	case 115:
 	  l1=l2;
 	  iw+=(ip-1)*ido;
-  	  break loop;
+  	  break;
 	}
       }
     }
