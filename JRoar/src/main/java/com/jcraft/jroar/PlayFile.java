@@ -162,7 +162,7 @@ static String status="status0";
     http_header.addElement("Content-Type: application/x-ogg");
 
     int ii=-1;
-  loop:
+    
     while(me!=null){
       ii++;
       if(this.file!=null &&
