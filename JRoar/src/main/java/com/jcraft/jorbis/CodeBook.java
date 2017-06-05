@@ -237,16 +237,19 @@ class CodeBook{
     if(entry==-1)return(-1);
     switch(addmul){
     case -1:
-      for(int i=0,o=0;i<dim;i++,o+=step)
-	a[index+o]=valuelist[entry*dim+i];
+      for(int i=0,o=0;i<dim;i++,o+=step){
+    	  a[index+o]=valuelist[entry*dim+i];
+      }
       break;
     case 0:
-      for(int i=0,o=0;i<dim;i++,o+=step)
-	a[index+o]+=valuelist[entry*dim+i];
+      for(int i=0,o=0;i<dim;i++,o+=step){
+    	  a[index+o]+=valuelist[entry*dim+i];
+      }
       break;
     case 1:
-      for(int i=0,o=0;i<dim;i++,o+=step)
-	a[index+o]*=valuelist[entry*dim+i];
+      for(int i=0,o=0;i<dim;i++,o+=step){
+    	  a[index+o]*=valuelist[entry*dim+i];
+      }
       break;
     default:
       //System.err.println("CodeBook.decodeves: addmul="+addmul); 
@@ -328,8 +331,9 @@ class CodeBook{
     int best=best(a,step);
     switch(addmul){
     case 0:
-      for(int i=0,o=0;i<dim;i++,o+=step)
-	a[o]-=valuelist[best*dim+i];
+      for(int i=0,o=0;i<dim;i++,o+=step){
+    	  a[o]-=valuelist[best*dim+i];
+      }
       break;
     case 1:
       for(int i=0,o=0;i<dim;i++,o+=step){

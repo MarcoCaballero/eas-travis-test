@@ -329,7 +329,9 @@ class Drft{
 	  state=119;
 	  break;
 	}
-	for(ik=0;ik<idl1;ik++)ch2[ik]=c2[ik];
+	for(ik=0;ik<idl1;ik++){
+		ch2[ik]=c2[ik];
+	}
 
 	t1=0;
 	for(j=1;j<ip;j++){
@@ -428,7 +430,9 @@ class Drft{
 	  }
 	}
       case 119:
-	for(ik=0;ik<idl1;ik++)c2[ik]=ch2[ik];
+	for(ik=0;ik<idl1;ik++){
+		c2[ik]=ch2[ik];
+	}
 
 	t1=0;
 	t2=ipp2*idl1;
@@ -495,7 +499,9 @@ class Drft{
 	for(j=1;j<ipph;j++){
 	  t1+=idl1;
 	  t2=t1;
-	  for(ik=0;ik<idl1;ik++)ch2[ik]+=c2[t2++];
+	  for(ik=0;ik<idl1;ik++){
+		  ch2[ik]+=c2[t2++];
+	  }
 	}
 
 	if(ido<l1){
@@ -508,7 +514,9 @@ class Drft{
 	for(k=0;k<l1;k++){
 	  t3=t1;
 	  t4=t2;
-	  for(i=0;i<ido;i++)cc[t4++]=ch[t3++];
+	  for(i=0;i<ido;i++){
+		  cc[t4++]=ch[t3++];
+	  }
 	  t1+=ido;
 	  t2+=t10;
 	}
@@ -684,7 +692,9 @@ class Drft{
       }
     }
     if(na==1)return;
-    for(i=0;i<n;i++)c[i]=ch[i];
+    for(i=0;i<n;i++){
+    	c[i]=ch[i];
+    }
   }
 
   static void dradb2(int ido,int l1,float[] cc,float[] ch,float[] wa1, int index){
@@ -1086,7 +1096,9 @@ class Drft{
 	for(j=1;j<ipph;j++){
 	  t1+=idl1;
 	  t2=t1;
-	  for(ik=0;ik<idl1;ik++)ch2[ik]+=ch2[t2++];
+	  for(ik=0;ik<idl1;ik++){
+		  ch2[ik]+=ch2[t2++];
+	  }
 	}
 
 	t1=0;
@@ -1163,7 +1175,9 @@ class Drft{
       case 132:
 	if(ido==1)return;
 
-	for(ik=0;ik<idl1;ik++)c2[ik]=ch2[ik];
+	for(ik=0;ik<idl1;ik++){
+		c2[ik]=ch2[ik];
+	}
 
 	t1=0;
 	for(j=1;j<ip;j++){
@@ -1312,6 +1326,8 @@ class Drft{
       }
     }
     if(na==0)return;
-    for(i=0;i<n;i++)c[i]=ch[i];
+    for(i=0;i<n;i++){
+    	c[i]=ch[i];
+    }
   }
 }

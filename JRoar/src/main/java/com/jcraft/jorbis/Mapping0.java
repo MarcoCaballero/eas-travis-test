@@ -192,8 +192,9 @@ class Mapping0 extends FuncMapping{
 
     /* we don't write the channel submappings if we only have one... */
     if(info.submaps>1){
-      for(int i=0;i<vi.channels;i++)
+      for(int i=0;i<vi.channels;i++){
         opb.write(info.chmuxlist[i],4);
+      }
     }
     for(int i=0;i<info.submaps;i++){
       opb.write(info.timesubmap[i],8);

@@ -204,7 +204,7 @@ class Residue0 extends FuncResidue{
         }
       
         // now we decode residual values for the partitions
-        for(k=0;k<partitions_per_word && i<partvals;k++,i++)
+        for(k=0;k<partitions_per_word && i<partvals;k++,i++){
 	  for(j=0;j<ch;j++){
 	    int offset=info.begin+i*samples_per_partition;
   	    if((info.secondstages[partword[j][l][k]]&(1<<s))!=0){
@@ -226,6 +226,7 @@ class Residue0 extends FuncResidue{
 	      }
 	    }
 	  }
+        }
       } 
     }
 //  errout:

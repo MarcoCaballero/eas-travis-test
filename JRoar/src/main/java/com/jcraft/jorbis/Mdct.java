@@ -71,11 +71,12 @@ class Mdct{
       int msb=1<<(log2n-2);
       for(int i=0;i<n/8;i++){
 	int acc=0;
-	for(int j=0;msb>>>j!=0;j++)
+	for(int j=0;msb>>>j!=0;j++){
 	  if(((msb>>>j)&i)!=0)acc|=1<<j;
 	bitrev[i*2]=((~acc)&mask);
 //	bitrev[i*2]=((~acc)&mask)-1;
 	bitrev[i*2+1]=acc;
+      }
       }
     }
     scale=4.f/n;
