@@ -29,7 +29,7 @@ import java.util.*;
 class Debug extends Page{
 	
 	static final String _ln="\n";
-	
+	static final private String blank="  ";
   static void register(){
     register("/debug.html", Debug.class.getName());
   }
@@ -73,7 +73,7 @@ s.println("<p>");
     s.close();
   }
 
-  static final private String blank="  ";
+
   private void  indent(StringBuffer sb, int foo){
     for(int i=0; i<foo; i++){
       sb.append(blank);

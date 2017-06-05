@@ -41,6 +41,8 @@ class Stats extends Page{
   
   static final char[] _ln="\n".toCharArray();
   
+  static final private char[] blank="  ".toCharArray();
+  
   static void register(){
 	    register("/stats.xml", Stats.class.getName());
   }
@@ -138,7 +140,7 @@ class Stats extends Page{
     s.close();
   }
 
-  static final private char[] blank="  ".toCharArray();
+
   private void  indent(StringBuffer sb, int foo){
     for(int i=0; i<foo; i++){
       sb.append(blank);

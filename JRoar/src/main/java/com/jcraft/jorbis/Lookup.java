@@ -90,14 +90,7 @@ class Lookup{
 	   0.6635520573f,   0.6540711597f,   0.6447257262f,   0.6355138211f,
   };
   static final int INVSQ_LOOKUP_SZ=32;
-  /* interpolated lookup based cos function, domain 0 to PI only */
-  static float coslook(float a){
-    double d=a*(.31830989*(float)COS_LOOKUP_SZ);
-    int i=(int)d;
-    return COS_LOOKUP[i]+ ((float)(d-i))*(COS_LOOKUP[i+1]-COS_LOOKUP[i]);
-  }     
-
-
+  
   static final float[] INVSQ_LOOKUP={
 	1.414213562373f,1.392621247646f,1.371988681140f,1.352246807566f,
 	1.333333333333f,1.315191898443f,1.297771369046f,1.281025230441f,
@@ -131,6 +124,15 @@ class Lookup{
 	6.103515625e-05f,4.315837288e-05f,3.051757812e-05f,2.157918644e-05f,
 	1.525878906e-05f,
   };
+  /* interpolated lookup based cos function, domain 0 to PI only */
+  static float coslook(float a){
+    double d=a*(.31830989*(float)COS_LOOKUP_SZ);
+    int i=(int)d;
+    return COS_LOOKUP[i]+ ((float)(d-i))*(COS_LOOKUP[i+1]-COS_LOOKUP[i]);
+  }     
+
+
+
   /* interpolated 1./sqrt(p) where .5 <= p < 1. */
   static float invsqlook(float a){
 // System.out.println(a);

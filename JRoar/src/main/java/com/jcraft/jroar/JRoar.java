@@ -46,6 +46,8 @@ public class JRoar extends Applet implements Runnable{
   static java.util.Vector mplisteners=new java.util.Vector();
 
   Button mount;
+  
+  static WatchDog wd=null;
 
   public JRoar(){
   }
@@ -92,7 +94,7 @@ public class JRoar extends Applet implements Runnable{
     (new Thread(this)).start();
   }
 
-  static WatchDog wd=null;
+
 
   public void run(){
     HttpServer httpServer=new HttpServer();
