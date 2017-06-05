@@ -572,7 +572,7 @@ public class VorbisFile{
 	else{
 	  // we're streaming
 	  // fetch the three header packets, build the info struct
-	  int foo[]=new int[1];
+	  int[] foo=new int[1];
 	  int ret=fetch_headers(vi[0], vc[0], foo, og);
           current_serialno=foo[0];
           if(ret!=0)return ret;

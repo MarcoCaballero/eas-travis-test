@@ -165,7 +165,9 @@ class Floor0 extends FuncFloor{
 	  }
 	}
 	for(int j=0;j<look.m;){
-	  for(int k=0;k<b.dim;k++,j++)lsp[j]+=last;
+	  for(int k=0;k<b.dim;k++,j++){
+		  lsp[j]+=last;
+	  }
 	  last=lsp[j-1];
 	}
 	// take the coefficients back to a spectral envelope curve
