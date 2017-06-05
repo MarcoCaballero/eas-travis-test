@@ -271,7 +271,9 @@ class Floor0 extends FuncFloor{
   }
 
   static void lsp_to_lpc(float[] lsp, float[] lpc, int m){ 
-    int i,j,m2=m/2;
+    int i;
+    int j;
+    int m2=m/2;
     float[] O=new float[m2];
     float[] E=new float[m2];
     float A;

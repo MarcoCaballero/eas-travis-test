@@ -112,7 +112,8 @@ public class SyncState{
     int bytes=fill-returned;
   
     if(headerbytes==0){
-      int _headerbytes,i;
+      int _headerbytes;
+      int i;
       if(bytes<27)return(0); // not enough for a header
     
     /* verify capture pattern */

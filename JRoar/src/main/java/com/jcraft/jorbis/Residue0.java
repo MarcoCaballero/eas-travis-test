@@ -159,7 +159,11 @@ class Residue0 extends FuncResidue{
   
   synchronized static int _01inverse(Block vb, Object vl, 
 				     float[][] in,int ch,int decodepart){
-    int i,j,k,l,s;
+    int i;
+    int j;
+    int k;
+    int l;
+    int s;
     LookResidue0 look=(LookResidue0 )vl;
     InfoResidue0 info=look.info;
 
@@ -236,7 +240,11 @@ class Residue0 extends FuncResidue{
   }
 
   static int _2inverse(Block vb, Object vl, float[][] in, int ch){
-    int i,j,k,l,s;
+    int i;
+    int j;
+    int k;
+    int l;
+    int s;
     LookResidue0 look=(LookResidue0 )vl;
     InfoResidue0 info=look.info;
 

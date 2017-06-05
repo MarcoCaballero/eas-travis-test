@@ -61,11 +61,26 @@ class Drft{
   
 
   static void drfti1(int n, float[] wa, int index, int[] ifac){
-    float arg,argh,argld,fi;
-    int ntry=0,i,j=-1;
-    int k1, l1, l2, ib;
-    int ld, ii, ip, is, nq, nr;
-    int ido, ipm, nfm1;
+    float arg;
+    float argh;
+    float argld; 
+    float fi;
+    int ntry=0;
+    int i;
+    int j=-1;
+    int k1;
+    int l1;
+    int l2;
+    int ib;
+    int ld;
+    int ii;
+    int ip;
+    int is;
+    int nq;
+    int nr;
+    int ido;
+    int ipm;
+    int nfm1;
     int nl=n;
     int nf=0;
 
@@ -151,9 +166,17 @@ class Drft{
   }
 
   static void dradf2(int ido,int l1,float[] cc, float[] ch, float[] wa1, int index){
-    int i,k;
-    float ti2,tr2;
-    int t0,t1,t2,t3,t4,t5,t6;
+    int i;
+    int k;
+    float ti2;
+    float tr2;
+    int t0;
+    int t1;
+    int t2;
+    int t3;
+    int t4;
+    int t5;
+    int t6;
 
     t1=0;
     t0=(t2=l1*ido);
@@ -208,8 +231,29 @@ class Drft{
 		     float[] wa1, int index1,
 		     float[] wa2, int index2,
 		     float[] wa3, int index3){
-    int i,k,t0,t1,t2,t3,t4,t5,t6;
-    float ci2,ci3,ci4,cr2,cr3,cr4,ti1,ti2,ti3,ti4,tr1,tr2,tr3,tr4;
+    int i;
+    int k;
+    int t0;
+    int t1;
+    int t2;
+    int t3;
+    int t4;
+    int t5;
+    int t6;
+    float ci2;
+    float ci3;
+    float ci4;
+    float cr2;
+    float cr3;
+    float cr4;
+    float ti1;
+    float ti2;
+    float ti3;
+    float ti4;
+    float tr1;
+    float tr2;
+    float tr3;
+    float tr4;
     t0=l1*ido;
   
     t1=t0;
@@ -306,12 +350,40 @@ class Drft{
 
   static void dradfg(int ido,int ip,int l1,int idl1,float[] cc,float[] c1,
 		     float[] c2, float[] ch, float[] ch2, float[] wa, int index){
-    int idij,ipph,i,j,k,l,ic,ik,is;
-    int t0,t1,t2=0,t3,t4,t5,t6,t7,t8,t9,t10;
-    float dc2,ai1,ai2,ar1,ar2,ds2;
+    int idij;
+    int ipph;
+    int i;
+    int j;
+    int k;
+    int l;
+    int ic;
+    int ik;
+    int is;
+    int t0;
+    int t1;
+    int t2=0;
+    int t3;
+    int t4;
+    int t5;
+    int t6;
+    int t7;
+    int t8;
+    int t9;
+    int t10;
+    float dc2;
+    float ai1;
+    float ai2;
+    float ar1;
+    float ar2;
+    float ds2;
     int nbd;
-    float dcp=0,arg,dsp=0,ar1h,ar2h;
-    int idp2,ipp2;
+    float dcp=0;
+    float arg;
+    float dsp=0;
+    float ar1h;
+    float ar2h;
+    int idp2;
+    int ipp2;
   
     arg=tpi/(float)ip;
     dcp=(float)Math.cos(arg);
@@ -625,9 +697,19 @@ class Drft{
   }
 
   static void drftf1(int n,float[] c, float[] ch, float[] wa, int[] ifac){
-    int i,k1,l1,l2;
-    int na,kh,nf;
-    int ip,iw,ido,idl1,ix2,ix3;
+    int i;
+    int k1;
+    int l1;
+    int l2;
+    int na; 
+    int kh;
+    int nf;
+    int ip;
+    int iw;
+    int ido;
+    int idl1;
+    int ix2;
+    int ix3;
 
     nf=ifac[1];
     na=1;
@@ -700,8 +782,17 @@ class Drft{
   }
 
   static void dradb2(int ido,int l1,float[] cc,float[] ch,float[] wa1, int index){
-    int i,k,t0,t1,t2,t3,t4,t5,t6;
-    float ti2,tr2;
+    int i;
+    int k;
+    int t0;
+    int t1;
+    int t2;
+    int t3;
+    int t4;
+    int t5;
+    int t6;
+    float ti2;
+    float tr2;
 
     t0=l1*ido;
     
@@ -752,8 +843,29 @@ class Drft{
   static void dradb3(int ido,int l1,float[] cc,float[] ch,
 		     float[] wa1, int index1,
 		     float[] wa2, int index2){
-    int i,k,t0,t1,t2,t3,t4,t5,t6,t7,t8,t9,t10;
-    float ci2,ci3,di2,di3,cr2,cr3,dr2,dr3,ti2,tr2;
+    int i;
+    int k;
+    int t0;
+    int t1;
+    int t2;
+    int t3;
+    int t4;
+    int t5;
+    int t6;
+    int t7;
+    int t8;
+    int t9;
+    int t10;
+    float ci2;
+    float ci3;
+    float di2;
+    float di3;
+    float cr2;
+    float cr3;
+    float dr2;
+    float dr3;
+    float ti2;
+    float tr2;
     t0=l1*ido;
 
     t1=0;
@@ -815,8 +927,31 @@ class Drft{
 		     float[] wa1, int index1,
 		     float[] wa2, int index2,
 		     float[] wa3, int index3){
-    int i,k,t0,t1,t2,t3,t4,t5,t6,t7,t8;
-    float ci2,ci3,ci4,cr2,cr3,cr4,ti1,ti2,ti3,ti4,tr1,tr2,tr3,tr4;
+    int i;
+    int k;
+    int t0;
+    int t1;
+    int t2;
+    int t3;
+    int t4;
+    int t5;
+    int t6;
+    int t7;
+    int t8;
+    float ci2;
+    float ci3;
+    float ci4;
+    float cr2;
+    float cr3;
+    float cr4;
+    float ti1;
+    float ti2;
+    float ti3;
+    float ti4;
+    float tr1;
+    float tr2;
+    float tr3;
+    float tr4;
     t0=l1*ido;
   
     t1=0;
@@ -903,11 +1038,39 @@ class Drft{
   static void dradbg(int ido,int ip,int l1,int idl1,float[] cc,float[] c1,
 		     float[] c2,float[] ch,float[] ch2,float[] wa, int index ){
 
-    int idij,ipph=0,i,j,k,l,ik,is,t0=0,t1,t2,t3,t4,t5,t6,t7,t8,t9,t10=0,
-      t11,t12;
-    float dc2,ai1,ai2,ar1,ar2,ds2;
+    int idij;
+    int ipph=0;
+    int i;
+    int j;
+    int k;
+    int l;
+    int ik;
+    int is;
+    int t0=0;
+    int t1;
+    int t2;
+    int t3;
+    int t4;
+    int t5;
+    int t6;
+    int t7;
+    int t8;
+    int t9;
+    int t10=0;
+    int t11;
+    int t12;
+    float dc2;
+    float ai1;
+    float ai2;
+    float ar1;
+    float ar2;
+    float ds2;
     int nbd=0;
-    float dcp=0,arg,dsp=0,ar1h,ar2h;
+    float dcp=0;
+    float arg;
+    float dsp=0;
+    float ar1h;
+    float ar2h;
     int ipp2=0;
 
     int state=100;
@@ -1240,9 +1403,18 @@ class Drft{
   }
 
   static void drftb1(int n, float[] c, float[] ch, float[] wa, int index, int[] ifac){
-    int i,k1,l1,l2=0;
+    int i;
+    int k1;
+    int l1;
+    int l2=0;
     int na;
-    int nf,ip=0,iw,ix2,ix3,ido=0,idl1=0;
+    int nf;
+    int ip=0;
+    int iw;
+    int ix2;
+    int ix3;
+    int ido=0;
+    int idl1=0;
 
     nf=ifac[1];
     na=0;

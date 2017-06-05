@@ -93,7 +93,9 @@ class UDPBroadcast extends Client{
     int port;
     byte[] inbuffer=new byte[1024];
     byte[] outbuffer=new byte[1024];
-    int instart=0, inend=0, outindex=0;
+    int instart=0;
+    int inend=0;
+    int outindex=0;
 
     UDPIO(String host, int port){
       this.host=host;
