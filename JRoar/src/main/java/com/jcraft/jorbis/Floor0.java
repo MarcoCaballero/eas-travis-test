@@ -28,6 +28,7 @@ package com.jcraft.jorbis;
 import com.jcraft.jogg.*;
 
 class Floor0 extends FuncFloor{
+	float[] lsp=null;   
 
   void pack(Object i, Buffer opb){
     InfoFloor0 info=(InfoFloor0)i;
@@ -121,7 +122,7 @@ class Floor0 extends FuncFloor{
   void free_state(Object vs){}
   int forward(Block vb, Object i,  float[] in, float[] out, Object vs){return 0;}
 
-  float[] lsp=null;    
+   
   int inverse(Block vb, Object i, float[] out){
     //System.err.println("Floor0.inverse "+i.getClass()+"]");
     LookFloor0 look=(LookFloor0)i;

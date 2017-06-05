@@ -29,6 +29,12 @@ import com.jcraft.jogg.*;
 
 class Mapping0 extends FuncMapping{
   static int seq=0;
+  
+  float[][] pcmbundle=null;
+  int[] zerobundle=null;
+  int[] nonzero=null;
+  Object[] floormemo=null;
+  
   void free_info(Object imap){};
   void free_look(Object imap){
 /*
@@ -361,10 +367,7 @@ class Mapping0 extends FuncMapping{
   }
 */
 
-  float[][] pcmbundle=null;
-  int[] zerobundle=null;
-  int[] nonzero=null;
-  Object[] floormemo=null;
+  
 
   synchronized int inverse(Block vb, Object l){
     //System.err.println("Mapping0.inverse");

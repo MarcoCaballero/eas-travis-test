@@ -29,6 +29,13 @@ class Drft{
   int n;
   float[] trigcache;    
   int[] splitcache;
+  
+  static int[] ntryh = { 4,2,3,5 };
+  static float tpi = 6.28318530717958647692528676655900577f;
+  static float hsqt2 = .70710678118654752440084436210485f;
+  static float taui = .86602540378443864676372317075293618f;
+  static float taur = -.5f;
+  static float sqrt2 = 1.4142135623730950488016887242097f;
 
   void backward(float[] data){
     //System.err.println("Drft.backward");
@@ -51,12 +58,7 @@ class Drft{
 //    memset(l,0,sizeof(drft_lookup));
   }
 
-  static int[] ntryh = { 4,2,3,5 };
-  static float tpi = 6.28318530717958647692528676655900577f;
-  static float hsqt2 = .70710678118654752440084436210485f;
-  static float taui = .86602540378443864676372317075293618f;
-  static float taur = -.5f;
-  static float sqrt2 = 1.4142135623730950488016887242097f;
+  
 
   static void drfti1(int n, float[] wa, int index, int[] ifac){
     float arg,argh,argld,fi;

@@ -37,6 +37,7 @@ class Source{
   int connections=0;
 
   int limit=0;
+  static final int BUFSIZE=4096*2;
 
   Info current_info=new Info();
   Comment current_comment=new Comment();
@@ -104,7 +105,7 @@ class Source{
     return null;
   }
 
-  static final int BUFSIZE=4096*2;
+
     /*
   static com.jcraft.jogg.Page og=new com.jcraft.jogg.Page();
   static Packet op=new Packet();

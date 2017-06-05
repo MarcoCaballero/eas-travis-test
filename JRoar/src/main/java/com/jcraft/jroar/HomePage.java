@@ -28,12 +28,15 @@ import java.util.*;
 
 class HomePage extends Page{
 
+	private static final int REFRESH=60;
+	private static int count=0;
+    private static final String _http="http://";
+	
   static void register(){
     register("/", HomePage.class.getName());
     register("/index.html", HomePage.class.getName());
   }
-  private static final int REFRESH=60;
-  private static int count=0;
+  
 
   public void kick(MySocket s, Hashtable vars, Vector httpheader) throws IOException{
     count++;
@@ -157,7 +160,7 @@ class HomePage extends Page{
     foo[foo.length-1]='u';foo[foo.length-2]='3';foo[foo.length-3]='m';
     return new String(foo);
   }
-  private static final String _http="http://";
+ 
   private String getHost(String url){
     if(!url.startsWith(_http)) return null;
     int foo=url.substring(_http.length()).indexOf('/');

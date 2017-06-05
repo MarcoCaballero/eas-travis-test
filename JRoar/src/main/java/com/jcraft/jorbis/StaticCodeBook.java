@@ -56,6 +56,10 @@ class StaticCodeBook{
   // encode helpers
   EncodeAuxNearestMatch nearest_tree;
   EncodeAuxThreshMatch  thresh_tree;
+  
+  static final int VQ_FEXP=10;
+  static final int VQ_FMAN=21;
+  static final int VQ_FEXP_BIAS=768; // bias toward values smaller than 1.
 
   StaticCodeBook(){}
   StaticCodeBook(int dim, int entries, int[] lengthlist,
@@ -445,9 +449,7 @@ class StaticCodeBook{
   // biased exponent) : neeeeeee eeemmmmm mmmmmmmm mmmmmmmm 
   // Why not IEEE?  It's just not that important here.
 
-  static final int VQ_FEXP=10;
-  static final int VQ_FMAN=21;
-  static final int VQ_FEXP_BIAS=768; // bias toward values smaller than 1.
+
 
   // doesn't currently guard under/overflow 
   static long float32_pack(float val){

@@ -39,6 +39,9 @@ class Mdct{
 
   float scale;
 
+  float[] _x=new float[1024];
+  float[] _w=new float[1024];
+  
   void init(int n){
     bitrev=new int[n/4];
     trig=new float[n+n/4];
@@ -87,8 +90,7 @@ class Mdct{
   void forward(float[] in, float[] out){
   }
 
-  float[] _x=new float[1024];
-  float[] _w=new float[1024];
+  
 
   synchronized void backward(float[] in, float[] out){
     if(_x.length<n/2){_x=new float[n/2];}

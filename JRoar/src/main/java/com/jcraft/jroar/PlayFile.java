@@ -41,6 +41,8 @@ class PlayFile extends Source implements Runnable{
   private Thread me=null;
   private String file=null;
   private String[] files=null;
+  
+  static String status="status0";
 
   PlayFile(String mountpoint, String[] files){
     super(mountpoint);
@@ -153,7 +155,7 @@ System.out.println(c);
     me.start();
   }
 
-static String status="status0";
+
 //static String file="??";
 
   public void run(){
