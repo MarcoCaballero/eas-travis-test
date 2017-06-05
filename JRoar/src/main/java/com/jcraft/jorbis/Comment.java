@@ -93,7 +93,8 @@ public class Comment{
   // * everywhere, and this is a fairly trivial function, so we include it
   static boolean tagcompare(byte[] s1, byte[] s2, int n){
     int c=0;
-    byte u1, u2;
+    byte u1;
+    byte u2;
     while(c < n){
       u1=s1[c]; u2=s2[c];
       if(u1>='A')u1=(byte)(u1-'A'+'a');

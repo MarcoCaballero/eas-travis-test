@@ -41,7 +41,8 @@ class Lpc{
   static float lpc_from_data(float[] data, float[] lpc,int n,int m){
     float[] aut=new float[m+1];
     float error;
-    int i,j;
+    int i;
+    int j;
 
     // autocorrelation, p+1 lag coefficients
 
@@ -110,7 +111,8 @@ class Lpc{
     int n=ln;
     float[] work=new float[n+n];
     float fscale=(float)(.5/n);
-    int i,j;
+    int i;
+    int j;
   
     // input is a real curve. make it complex-real
     // This mixes phase, but the LPC generation doesn't care.

@@ -116,7 +116,8 @@ public abstract class Page{
     int i=0;
     int c=0;
 
-    String key, value;
+    String key;
+    String value;
 
     while(true){
       key=value=null; 
@@ -148,7 +149,8 @@ public abstract class Page{
     int i=0;
     int c=0;
     StringBuffer sb=new StringBuffer();
-    String key, value;
+    String key;
+    String value;
 
     while(i<len){
       key=value=null; 

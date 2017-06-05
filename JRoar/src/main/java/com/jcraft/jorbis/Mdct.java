@@ -133,8 +133,10 @@ class Mdct{
 
     {
       int B=n2;
-      int o1=n4,o2=o1-1;
-      int o3=n4+n2,o4=o3-1;
+      int o1=n4;
+      int o2=o1-1;
+      int o3=n4+n2;
+      int o4=o3-1;
     
       for(int i=0;i<n4;i++){
 	float temp1= (xxx[xx] * trig[B+1] - xxx[xx+1] * trig[B]);
@@ -192,8 +194,10 @@ class Mdct{
 	for(int r=0;r<(k0>>>2);r++){
 	  int w1=wbase;
 	  w2=w1-(k0>>1);
-	  float AEv= trig[A],wA;
-	  float AOv= trig[A+1],wB;
+	  float AEv= trig[A];
+	  float wA;
+	  float AOv= trig[A+1];
+	  float wB;
 	  wbase-=2;
 		      
 	  k0++;

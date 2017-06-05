@@ -86,7 +86,9 @@ class CodeBook{
   synchronized int decodevs_add(float[]a, int offset, Buffer b, int n){
     int step=n/dim;
     int entry;
-    int i,j,o;
+    int i;
+    int j;
+    int o;
 
     if(t.length<step){
       t=new int[step];
@@ -107,7 +109,9 @@ class CodeBook{
   }
 
   int decodev_add(float[]a, int offset, Buffer b,int n){
-    int i,j,entry;
+    int i;
+    int j;
+    int entry;
     int t;
 
     if(dim>8){
@@ -152,7 +156,9 @@ class CodeBook{
   }
 
   int decodev_set(float[] a,int offset, Buffer b, int n){
-    int i,j,entry;
+    int i;
+    int j;
+    int entry;
     int t;
 
     for(i=0;i<n;){
@@ -167,7 +173,10 @@ class CodeBook{
   }
 
   int decodevv_add(float[][] a, int offset,int ch, Buffer b,int n){
-    int i,j,k,entry;
+    int i;
+    int j;
+    int k;
+    int entry;
     int chptr=0;
     //System.out.println("decodevv_add: a="+a+",b="+b+",valuelist="+valuelist);
 
@@ -239,7 +248,7 @@ class CodeBook{
     if(entry==-1)return(-1);
     switch(addmul){
     case -1:
-      for(int i=0,o=0;i<dim;i++,o+=step){
+      for(int i=0, o=0;i<dim;i++,o+=step){
     	  a[index+o]=valuelist[entry*dim+i];
       }
       break;

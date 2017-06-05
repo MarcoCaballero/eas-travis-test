@@ -140,7 +140,9 @@ class Floor1 extends FuncFloor{
   }
 
   Object unpack(Info vi , Buffer opb){
-    int count=0,maxclass=-1,rangebits;
+    int count=0;
+    int maxclass=-1;
+    int rangebits;
     InfoFloor1 info=new InfoFloor1();
 
     /* read partitions */
