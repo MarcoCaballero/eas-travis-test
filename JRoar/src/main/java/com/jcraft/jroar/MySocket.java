@@ -29,6 +29,7 @@ public class MySocket {
   Socket socket=null;
   private DataInputStream dataInputStream=null;
   private OutputStream os=null;
+  static final private byte[] _rn="\r\n".getBytes();
 
   MySocket(Socket s) throws IOException{
 
@@ -96,7 +97,7 @@ public class MySocket {
     os.write(Integer.toString(c).getBytes());
   }
 
-  static final private byte[] _rn="\r\n".getBytes();
+ 
   public void pn(String s) throws IOException{
     println(s);
   }

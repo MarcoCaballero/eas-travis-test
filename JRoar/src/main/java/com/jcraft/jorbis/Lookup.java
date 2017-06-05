@@ -62,59 +62,7 @@ class Lookup{
 	-0.9951847266722f,-0.9972904566787f,-0.9987954562052f,-0.9996988186962f,
 	-1.0000000000000f,
   };
-  /* interpolated lookup based cos function, domain 0 to PI only */
-  static float coslook(float a){
-    double d=a*(.31830989*(float)COS_LOOKUP_SZ);
-    int i=(int)d;
-    return COS_LOOKUP[i]+ ((float)(d-i))*(COS_LOOKUP[i+1]-COS_LOOKUP[i]);
-  }     
-
-  static final int INVSQ_LOOKUP_SZ=32;
-  static final float[] INVSQ_LOOKUP={
-	1.414213562373f,1.392621247646f,1.371988681140f,1.352246807566f,
-	1.333333333333f,1.315191898443f,1.297771369046f,1.281025230441f,
-	1.264911064067f,1.249390095109f,1.234426799697f,1.219988562661f,
-	1.206045378311f,1.192569588000f,1.179535649239f,1.166919931983f,
-	1.154700538379f,1.142857142857f,1.131370849898f,1.120224067222f,
-	1.109400392450f,1.098884511590f,1.088662107904f,1.078719779941f,
-	1.069044967650f,1.059625885652f,1.050451462878f,1.041511287847f,
-	1.032795558989f,1.024295039463f,1.016001016002f,1.007905261358f,
-	1.000000000000f,
-  };
-  /* interpolated 1./sqrt(p) where .5 <= p < 1. */
-  static float invsqlook(float a){
-// System.out.println(a);
-    double d=a*(2.f*(float)INVSQ_LOOKUP_SZ)-(float)INVSQ_LOOKUP_SZ;
-    int i=(int)d;
-    return INVSQ_LOOKUP[i]+ ((float)(d-i))*(INVSQ_LOOKUP[i+1]-INVSQ_LOOKUP[i]);
-  }
-
-  static final int INVSQ2EXP_LOOKUP_MIN=-32;
-  static final int INVSQ2EXP_LOOKUP_MAX=32;
-  static final float[] INVSQ2EXP_LOOKUP={
-	         65536.f,    46340.95001f,         32768.f,    23170.47501f,
-	         16384.f,     11585.2375f,          8192.f,    5792.618751f,
-	          4096.f,    2896.309376f,          2048.f,    1448.154688f,
-	          1024.f,    724.0773439f,           512.f,     362.038672f,
-	           256.f,     181.019336f,           128.f,    90.50966799f,
-	            64.f,      45.254834f,            32.f,      22.627417f,
-	            16.f,     11.3137085f,             8.f,    5.656854249f,
-	             4.f,    2.828427125f,             2.f,    1.414213562f,
-	             1.f,   0.7071067812f,            0.5f,   0.3535533906f,
-	           0.25f,   0.1767766953f,          0.125f,  0.08838834765f,
-	         0.0625f,  0.04419417382f,        0.03125f,  0.02209708691f,
-	       0.015625f,  0.01104854346f,      0.0078125f, 0.005524271728f,
-	     0.00390625f, 0.002762135864f,    0.001953125f, 0.001381067932f,
-	   0.0009765625f, 0.000690533966f,  0.00048828125f, 0.000345266983f,
-	 0.000244140625f,0.0001726334915f,0.0001220703125f,8.631674575e-05f,
-	6.103515625e-05f,4.315837288e-05f,3.051757812e-05f,2.157918644e-05f,
-	1.525878906e-05f,
-  };
-  /* interpolated 1./sqrt(p) where .5 <= p < 1. */
-  static float invsq2explook(int a){
-    return INVSQ2EXP_LOOKUP[a-INVSQ2EXP_LOOKUP_MIN];
-  }
-
+  
   static final int FROMdB_LOOKUP_SZ=35;
   static final int FROMdB2_LOOKUP_SZ=32;
   static final int FROMdB_SHIFT=5;
@@ -141,6 +89,63 @@ class Lookup{
 	   0.7028699885f,   0.6928273125f,   0.6829281272f,   0.6731703824f,
 	   0.6635520573f,   0.6540711597f,   0.6447257262f,   0.6355138211f,
   };
+  static final int INVSQ_LOOKUP_SZ=32;
+  /* interpolated lookup based cos function, domain 0 to PI only */
+  static float coslook(float a){
+    double d=a*(.31830989*(float)COS_LOOKUP_SZ);
+    int i=(int)d;
+    return COS_LOOKUP[i]+ ((float)(d-i))*(COS_LOOKUP[i+1]-COS_LOOKUP[i]);
+  }     
+
+
+  static final float[] INVSQ_LOOKUP={
+	1.414213562373f,1.392621247646f,1.371988681140f,1.352246807566f,
+	1.333333333333f,1.315191898443f,1.297771369046f,1.281025230441f,
+	1.264911064067f,1.249390095109f,1.234426799697f,1.219988562661f,
+	1.206045378311f,1.192569588000f,1.179535649239f,1.166919931983f,
+	1.154700538379f,1.142857142857f,1.131370849898f,1.120224067222f,
+	1.109400392450f,1.098884511590f,1.088662107904f,1.078719779941f,
+	1.069044967650f,1.059625885652f,1.050451462878f,1.041511287847f,
+	1.032795558989f,1.024295039463f,1.016001016002f,1.007905261358f,
+	1.000000000000f,
+  };
+  
+  static final int INVSQ2EXP_LOOKUP_MIN=-32;
+  static final int INVSQ2EXP_LOOKUP_MAX=32;
+  static final float[] INVSQ2EXP_LOOKUP={
+	         65536.f,    46340.95001f,         32768.f,    23170.47501f,
+	         16384.f,     11585.2375f,          8192.f,    5792.618751f,
+	          4096.f,    2896.309376f,          2048.f,    1448.154688f,
+	          1024.f,    724.0773439f,           512.f,     362.038672f,
+	           256.f,     181.019336f,           128.f,    90.50966799f,
+	            64.f,      45.254834f,            32.f,      22.627417f,
+	            16.f,     11.3137085f,             8.f,    5.656854249f,
+	             4.f,    2.828427125f,             2.f,    1.414213562f,
+	             1.f,   0.7071067812f,            0.5f,   0.3535533906f,
+	           0.25f,   0.1767766953f,          0.125f,  0.08838834765f,
+	         0.0625f,  0.04419417382f,        0.03125f,  0.02209708691f,
+	       0.015625f,  0.01104854346f,      0.0078125f, 0.005524271728f,
+	     0.00390625f, 0.002762135864f,    0.001953125f, 0.001381067932f,
+	   0.0009765625f, 0.000690533966f,  0.00048828125f, 0.000345266983f,
+	 0.000244140625f,0.0001726334915f,0.0001220703125f,8.631674575e-05f,
+	6.103515625e-05f,4.315837288e-05f,3.051757812e-05f,2.157918644e-05f,
+	1.525878906e-05f,
+  };
+  /* interpolated 1./sqrt(p) where .5 <= p < 1. */
+  static float invsqlook(float a){
+// System.out.println(a);
+    double d=a*(2.f*(float)INVSQ_LOOKUP_SZ)-(float)INVSQ_LOOKUP_SZ;
+    int i=(int)d;
+    return INVSQ_LOOKUP[i]+ ((float)(d-i))*(INVSQ_LOOKUP[i+1]-INVSQ_LOOKUP[i]);
+  }
+
+ 
+  /* interpolated 1./sqrt(p) where .5 <= p < 1. */
+  static float invsq2explook(int a){
+    return INVSQ2EXP_LOOKUP[a-INVSQ2EXP_LOOKUP_MIN];
+  }
+
+
   /* interpolated lookup based fromdB function, domain -140dB to 0dB only */
   static float fromdBlook(float a){
     int i=(int)(a*((float)(-(1<<FROMdB2_SHIFT))));

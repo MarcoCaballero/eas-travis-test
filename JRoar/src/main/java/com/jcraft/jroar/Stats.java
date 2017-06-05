@@ -27,10 +27,7 @@ import java.net.*;
 import java.util.*;
 
 class Stats extends Page{
-  static void register(){
-    register("/stats.xml", Stats.class.getName());
-  }
-
+  
   static final private char[] _lt="<".toCharArray();
   static final private char[] _gt=">".toCharArray();
   static final private char[] _ltslash="</".toCharArray();
@@ -41,6 +38,13 @@ class Stats extends Page{
   static final private char[] _source_connections="source_connections".toCharArray();
   static final private char[] _sources="sources".toCharArray();
   static final private char[] _listeners="listeners".toCharArray();
+  
+  static final char[] _ln="\n".toCharArray();
+  
+  static void register(){
+	    register("/stats.xml", Stats.class.getName());
+  }
+
 
   public void kick(MySocket s, Hashtable vars, Vector httpheader) throws IOException{
 /*
@@ -168,7 +172,7 @@ class Stats extends Page{
     wrap(sb, tag, foo); ln(sb);
     return;
   }
-  static final char[] _ln="\n".toCharArray();
+
   private void  ln(StringBuffer sb){
     sb.append(_ln);
     return;

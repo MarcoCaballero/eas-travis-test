@@ -40,6 +40,8 @@ public class JRoar extends Applet implements Runnable{
 //static String icepasswd="changeme";
   static String icepasswd=null;
   static String comment=null;
+  
+  private static final int WATCHDOGSLEEP=3000;
 
   static java.util.Vector mplisteners=new java.util.Vector();
 
@@ -343,7 +345,7 @@ System.out.println("playFile ("+line+")");
     new Store(foo, bar);
   }
 
-  private static final int WATCHDOGSLEEP=3000;
+
   static class WatchDog extends Thread{
     public void run(){
       Source source;

@@ -35,6 +35,8 @@ class CodeBook{
   float[] valuelist; // list of dim*entries actual entry values
   int[] codelist;     // list of bitstream codewords for each entry
   DecodeAux decode_tree;
+  
+  private int[] t=new int[15];  // decodevs_add is synchronized for re-using t.
 
   // returns the number of bits
   int encode(int a, Buffer b){
@@ -80,7 +82,7 @@ class CodeBook{
     return(encode(best,b));
   }
 
-  private int[] t=new int[15];  // decodevs_add is synchronized for re-using t.
+ 
   synchronized int decodevs_add(float[]a, int offset, Buffer b, int n){
     int step=n/dim;
     int entry;

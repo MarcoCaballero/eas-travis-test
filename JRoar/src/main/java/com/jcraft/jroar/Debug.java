@@ -27,6 +27,9 @@ import java.net.*;
 import java.util.*;
 
 class Debug extends Page{
+	
+	static final String _ln="\n";
+	
   static void register(){
     register("/debug.html", Debug.class.getName());
   }
@@ -85,7 +88,7 @@ s.println("<p>");
     ln(sb);
     return;
   }
-  static final String _ln="\n";
+  
   private void  ln(StringBuffer sb){
     sb.append(_ln);
     return;

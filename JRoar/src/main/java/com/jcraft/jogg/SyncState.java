@@ -51,6 +51,9 @@ public class SyncState{
   int unsynced;
   int headerbytes;
   int bodybytes;
+  
+  private Page pageseek=new Page();
+  private  byte[] chksum=new byte[4];
 
   public int clear(){
     data=null;
@@ -102,8 +105,7 @@ public class SyncState{
 // -n) skipped n bytes
 //  0) page not ready; more data (no bytes skipped)
 //  n) page synced at current location; page length n bytes
-  private Page pageseek=new Page();
-  private  byte[] chksum=new byte[4];
+  
   public int pageseek(Page og){
     int page=returned;
     int next;

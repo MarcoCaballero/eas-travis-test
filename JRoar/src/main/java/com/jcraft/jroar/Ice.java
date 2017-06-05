@@ -49,6 +49,8 @@ class Ice extends Source{
 
   private static final String _icepasswd="ice-password: ";
   private static final String _ice="ice-";
+  private static final byte[] b64 ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".getBytes();
+  
   Ice(String mountpoint, MySocket mysocket, Vector headerfromice){
     this(mountpoint, mysocket, headerfromice, "ICE/1.0");
   }
@@ -317,7 +319,7 @@ System.out.println("drop[1]:  current="+System.currentTimeMillis()+", last="+las
     return true;
   }
 
-  private static final byte[] b64 ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=".getBytes();
+  
   private static byte val(byte foo){
     if(foo == '=') return 0;
     for(int j=0; j<b64.length; j++){

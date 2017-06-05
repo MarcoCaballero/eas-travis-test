@@ -28,13 +28,14 @@ import java.util.*;
 import com.jcraft.jogg.*;
 
 class Store extends Page{
+	String source=null;
+	Vector header=new Vector();
+	 byte[] content=null;
   static void register(){
     register("/store", Mount.class.getName());
   }
 
-  String source=null;
-  Vector header=new Vector();
-  byte[] content=null;
+  
 
   Store(String mountpoint, String source){
     this.source=source;

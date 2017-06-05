@@ -28,6 +28,14 @@ package com.jcraft.jogg;
 
 public class Page{
   private static int[] crc_lookup=new int[256];
+  public byte[] header_base;
+  public int header;
+  public int header_len;
+  public byte[] body_base;
+  public int body;
+  public int body_len;
+  
+  
   static {
     for(int i=0; i<crc_lookup.length; i++){
       crc_lookup[i]=crc_entry(i);
@@ -50,12 +58,6 @@ public class Page{
     return(r&0xffffffff);
   }
 
-  public byte[] header_base;
-  public int header;
-  public int header_len;
-  public byte[] body_base;
-  public int body;
-  public int body_len;
 
   int version(){
     return header_base[header+4]&0xff;
