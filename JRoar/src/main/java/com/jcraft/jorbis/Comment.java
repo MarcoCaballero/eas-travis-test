@@ -228,8 +228,9 @@ public class Comment{
   }
  
   void clear(){
-    for(int i=0;i<comments;i++)
+    for(int i=0;i<comments;i++){
       user_comments[i]=null;
+    }
     user_comments=null;
     vendor=null;
   }

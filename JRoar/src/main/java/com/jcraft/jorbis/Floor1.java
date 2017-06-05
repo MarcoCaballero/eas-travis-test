@@ -257,7 +257,9 @@ class Floor1 extends FuncFloor{
         fit_value=new int[look.posts];
       }
       else{
-        for(int i=0; i<fit_value.length; i++) fit_value[i]=0;
+        for(int i=0; i<fit_value.length; i++){
+        	fit_value[i]=0;
+        }
       }
 
       fit_value[0]=vb.opb.read(ilog(look.quant_q-1));

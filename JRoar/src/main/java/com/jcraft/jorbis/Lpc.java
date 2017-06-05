@@ -48,7 +48,9 @@ class Lpc{
     j=m+1;
     while(j--!=0){
       float d=0;
-      for(i=j;i<n;i++)d+=data[i]*data[i-j];
+      for(i=j;i<n;i++){
+    	  d+=data[i]*data[i-j];
+      }
       aut[j]=d;
     }
   
@@ -66,7 +68,9 @@ class Lpc{
       float r=-aut[i+1];
 
       if(error==0){
-        for(int k=0; k<m; k++) lpc[k]=0.0f;
+        for(int k=0; k<m; k++){
+        	lpc[k]=0.0f;
+        }
         return 0;
       }
 
@@ -75,7 +79,9 @@ class Lpc{
       // and needs reflection coefficients, save the results of 'r' from
       // each iteration.
 
-      for(j=0;j<i;j++)r-=lpc[j]*aut[i-j];
+      for(j=0;j<i;j++){
+    	  r-=lpc[j]*aut[i-j];
+      }
       r/=error; 
 
       // Update LPC coefficients and total error
@@ -157,7 +163,9 @@ class Lpc{
   void lpc_to_curve(float[] curve, float[] lpc, float amp){
 
     //memset(curve,0,sizeof(float)*l->ln*2);
-    for(int i=0; i<ln*2; i++)curve[i]=0.0f;
+    for(int i=0; i<ln*2; i++){
+    	curve[i]=0.0f;
+    }
 
     if(amp==0)return;
 

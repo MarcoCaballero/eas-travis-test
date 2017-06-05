@@ -75,9 +75,15 @@ private  int body_returned;   /* elements of fill returned */
   public void init(int serialno){
     if(body_data==null){ init(); }
     else{
-      for(int i=0; i<body_data.length; i++) body_data[i]=0;
-      for(int i=0; i<lacing_vals.length; i++) lacing_vals[i]=0;
-      for(int i=0; i<granule_vals.length; i++) granule_vals[i]=0;
+      for(int i=0; i<body_data.length; i++){
+    	  body_data[i]=0;
+      }
+      for(int i=0; i<lacing_vals.length; i++){
+    	  lacing_vals[i]=0;
+      }
+      for(int i=0; i<granule_vals.length; i++){
+    	  granule_vals[i]=0;
+      }
     }
     this.serialno=serialno;
   }

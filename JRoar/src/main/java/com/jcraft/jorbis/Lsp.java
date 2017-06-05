@@ -45,7 +45,9 @@ class Lsp{
 			   float amp, float ampoffset){
     int i;
     float wdel=M_PI/ln;
-    for(i=0;i<m;i++)lsp[i]=Lookup.coslook(lsp[i]);
+    for(i=0;i<m;i++){
+    	lsp[i]=Lookup.coslook(lsp[i]);
+    }
     int m2=(m/2)*2;
 
     i=0;
