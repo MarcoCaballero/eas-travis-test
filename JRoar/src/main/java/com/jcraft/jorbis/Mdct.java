@@ -39,6 +39,9 @@ class Mdct{
 
   float scale;
 
+  float[] _x=new float[1024];
+  float[] _w=new float[1024];
+  
   void init(int n){
     bitrev=new int[n/4];
     trig=new float[n+n/4];
@@ -71,11 +74,12 @@ class Mdct{
       int msb=1<<(log2n-2);
       for(int i=0;i<n/8;i++){
 	int acc=0;
-	for(int j=0;msb>>>j!=0;j++)
+	for(int j=0;msb>>>j!=0;j++){
 	  if(((msb>>>j)&i)!=0)acc|=1<<j;
 	bitrev[i*2]=((~acc)&mask);
 //	bitrev[i*2]=((~acc)&mask)-1;
 	bitrev[i*2+1]=acc;
+      }
       }
     }
     scale=4.f/n;
@@ -87,8 +91,7 @@ class Mdct{
   void forward(float[] in, float[] out){
   }
 
-  float[] _x=new float[1024];
-  float[] _w=new float[1024];
+  
 
   synchronized void backward(float[] in, float[] out){
     if(_x.length<n/2){_x=new float[n/2];}
@@ -130,8 +133,10 @@ class Mdct{
 
     {
       int B=n2;
-      int o1=n4,o2=o1-1;
-      int o3=n4+n2,o4=o3-1;
+      int o1=n4;
+      int o2=o1-1;
+      int o3=n4+n2;
+      int o4=o3-1;
     
       for(int i=0;i<n4;i++){
 	float temp1= (xxx[xx] * trig[B+1] - xxx[xx+1] * trig[B]);
@@ -189,8 +194,10 @@ class Mdct{
 	for(int r=0;r<(k0>>>2);r++){
 	  int w1=wbase;
 	  w2=w1-(k0>>1);
-	  float AEv= trig[A],wA;
-	  float AOv= trig[A+1],wB;
+	  float AEv= trig[A];
+	  float wA;
+	  float AOv= trig[A+1];
+	  float wB;
 	  wbase-=2;
 		      
 	  k0++;

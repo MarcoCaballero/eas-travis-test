@@ -21,73 +21,74 @@
  */
 
 package com.jcraft.jroar;
+
 import java.lang.*;
 import java.io.*;
 import java.net.*;
 import java.util.*;
 
-class Debug extends Page{
-  static void register(){
-    register("/debug.html", Debug.class.getName());
-  }
+class Debug extends Page {
 
-  public void kick(MySocket s, Hashtable vars, Vector httpheader) throws IOException{
-    s.println( "HTTP/1.0 200 OK" );
-    s.println( "Content-Type: text/html" );
-    s.println( "" ) ;
-    s.println("<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">");
-    s.println("<HTML><HEAD>");
-    s.println("<TITLE>JRoar</TITLE>");
-    s.println("</HEAD><BODY>");
-    s.println( "<h1>Debug</h1>" );
-    s.println( "<pre>" );
-//    s.println("PlayFile.status: "+PlayFile.status+"<br>");
-//    s.println("PlayFile.file: "+PlayFile.file+"<br>");
+	static final String _ln = "\n";
+	static final private String blank = "  ";
 
-    Source source;
-    Enumeration sources=Source.sources.elements();
-    for(; sources.hasMoreElements();){
-      source=((Source)sources.nextElement());
-      s.println("Source: "+source);
-      s.println("         "+source.listeners);
-    }
-//s.println("<p>");
-//
-//s.println("java.version:" +System.getProperty("java.version"));
+	static void register() {
+		register("/debug.html", Debug.class.getName());
+	}
 
-s.println("<p>");
+	public void kick(MySocket s, Hashtable vars, Vector httpheader) throws IOException {
+		s.println("HTTP/1.0 200 OK");
+		s.println("Content-Type: text/html");
+		s.println("");
+		s.println("<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">");
+		s.println("<HTML><HEAD>");
+		s.println("<TITLE>JRoar</TITLE>");
+		s.println("</HEAD><BODY>");
+		s.println("<h1>Debug</h1>");
+		s.println("<pre>");
 
-    if(JRoar.wd!=null){  
-      s.println("JRoar.wd.isAlive() " +JRoar.wd.isAlive());
-      if(!JRoar.wd.isAlive()){
-        JRoar.wd.start();
-      }
-    }
+		Source source;
+		Enumeration sources = Source.sources.elements();
+		for (; sources.hasMoreElements();) {
+			source = ((Source) sources.nextElement());
+			s.println("Source: " + source);
+			s.println("         " + source.listeners);
+		}
 
-    s.println( "</pre>" );
-    s.println("</BODY></HTML>");
-    s.flush();
-    s.close();
-  }
+		s.println("<p>");
 
-  static final private String blank="  ";
-  private void  indent(StringBuffer sb, int foo){
-    for(int i=0; i<foo; i++){
-      sb.append(blank);
-    }
-  }
-  private void  wrap(StringBuffer sb, String tag, String  foo){
-    sb.append("<"+tag+">"+foo+"</"+tag+">");
-    return;
-  }
-  private void  wrapln(StringBuffer sb, String tag, String  foo){
-    wrap(sb, tag, foo);
-    ln(sb);
-    return;
-  }
-  static final String _ln="\n";
-  private void  ln(StringBuffer sb){
-    sb.append(_ln);
-    return;
-  }
+		if (JRoar.wd != null) {
+			s.println("JRoar.wd.isAlive() " + JRoar.wd.isAlive());
+			if (!JRoar.wd.isAlive()) {
+				JRoar.wd.start();
+			}
+		}
+
+		s.println("</pre>");
+		s.println("</BODY></HTML>");
+		s.flush();
+		s.close();
+	}
+
+	private void indent(StringBuffer sb, int foo) {
+		for (int i = 0; i < foo; i++) {
+			sb.append(blank);
+		}
+	}
+
+	private void wrap(StringBuffer sb, String tag, String foo) {
+		sb.append("<" + tag + ">" + foo + "</" + tag + ">");
+		return;
+	}
+
+	private void wrapln(StringBuffer sb, String tag, String foo) {
+		wrap(sb, tag, foo);
+		ln(sb);
+		return;
+	}
+
+	private void ln(StringBuffer sb) {
+		sb.append(_ln);
+		return;
+	}
 }

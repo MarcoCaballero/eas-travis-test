@@ -21,69 +21,76 @@
  */
 
 package com.jcraft.jroar;
+
 import java.io.*;
 import java.util.*;
 
-class HttpClient extends Client{
-  boolean headerIsSent=false;
-  MySocket ms=null;
-  String file=null;
+class HttpClient extends Client {
+	boolean headerIsSent = false;
+	MySocket ms = null;
+	String file = null;
 
-String touched="not yet";
+	String touched = "not yet";
 
-  HttpClient(MySocket ms, Vector httpheader, String file){
-    super();
-    this.ms=ms;
-    this.file=file;
-    String foo=null;
-    for(int i=0; i<httpheader.size(); i++){
-      foo=(String)httpheader.elementAt(i);
-      if(foo.startsWith("jroar-proxy: ")){
-        proxy=foo.substring(foo.indexOf(' ')+1);
-      }
-    }
-  }
+	HttpClient(MySocket ms, Vector httpheader, String file) {
+		super();
+		this.ms = ms;
+		this.file = file;
+		String foo = null;
+		for (int i = 0; i < httpheader.size(); i++) {
+			foo = (String) httpheader.elementAt(i);
+			if (foo.startsWith("jroar-proxy: ")) {
+				proxy = foo.substring(foo.indexOf(' ') + 1);
+			}
+		}
+	}
 
-  public void write(Vector http_header, byte[] header,
-		    byte[] foo, int foostart, int foolength,
-		    byte[] bar, int barstart, int barlength) throws IOException{
-touched="done";
-    lasttime=System.currentTimeMillis();
-    ready=true;
-    if(!headerIsSent){
-      if(header==null){
-        ready=false;
-        return;
-      }
-      for(int i=0; i<http_header.size(); i++){
-        ms.println((String)(http_header.elementAt(i)));
-      }
-      ms.println("");
-      ms.flush();
+	public void write(Vector http_header, byte[] header, byte[] foo, int foostart, int foolength, byte[] bar,
+			int barstart, int barlength) throws IOException {
+		touched = "done";
+		lasttime = System.currentTimeMillis();
+		ready = true;
+		if (!headerIsSent) {
+			if (header == null) {
+				ready = false;
+				return;
+			}
+			for (int i = 0; i < http_header.size(); i++) {
+				ms.println((String) (http_header.elementAt(i)));
+			}
+			ms.println("");
+			ms.flush();
 
-      ms.write(header, 0, header.length);
-      headerIsSent=true;
-    }
-    ms.write(foo, foostart, foolength);
-    ms.write(bar, barstart, barlength);
-    ms.flush();
-    ready=false;
-  }
+			ms.write(header, 0, header.length);
+			headerIsSent = true;
+		}
+		ms.write(foo, foostart, foolength);
+		ms.write(bar, barstart, barlength);
+		ms.flush();
+		ready = false;
+	}
 
-  public void close(){
-    if(!headerIsSent){
-      try{Page.unknown(ms, file);}
-      catch(Exception e){}
-    }
-    try{ms.close();}
-    catch(Exception e){}
-    ms=null;
-    super.close();
-  }
+	public void close() {
+		if (!headerIsSent) {
+			try {
+				Page.unknown(ms, file);
+			} catch (Exception e) {
+			}
+		}
+		try {
+			ms.close();
+		} catch (Exception e) {
+		}
+		ms = null;
+		super.close();
+	}
 
-  public boolean isRunning(){ return (ms!=null);}
+	public boolean isRunning() {
+		return (ms != null);
+	}
 
-  public String toString(){
-    return super.toString()+",hederIsSent="+headerIsSent+",touched="+touched+",lasttime="+lasttime+",ready="+ready+(ms!=null ? ",from="+ms.socket.getInetAddress() : ",ms=null")+"<br>";
-  }
+	public String toString() {
+		return super.toString() + ",hederIsSent=" + headerIsSent + ",touched=" + touched + ",lasttime=" + lasttime
+				+ ",ready=" + ready + (ms != null ? ",from=" + ms.socket.getInetAddress() : ",ms=null") + "<br>";
+	}
 }

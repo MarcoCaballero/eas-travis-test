@@ -28,6 +28,7 @@ package com.jcraft.jorbis;
 import com.jcraft.jogg.*;
 
 class Floor0 extends FuncFloor{
+	float[] lsp=null;   
 
   void pack(Object i, Buffer opb){
     InfoFloor0 info=(InfoFloor0)i;
@@ -37,8 +38,9 @@ class Floor0 extends FuncFloor{
     opb.write(info.ampbits,6);
     opb.write(info.ampdB,8);
     opb.write(info.numbooks-1,4);
-    for(int j=0;j<info.numbooks;j++)
+    for(int j=0;j<info.numbooks;j++){
       opb.write(info.books[j],8);
+    }
   }
 
   Object unpack(Info vi , Buffer opb){
@@ -121,7 +123,7 @@ class Floor0 extends FuncFloor{
   void free_state(Object vs){}
   int forward(Block vb, Object i,  float[] in, float[] out, Object vs){return 0;}
 
-  float[] lsp=null;    
+   
   int inverse(Block vb, Object i, float[] out){
     //System.err.println("Floor0.inverse "+i.getClass()+"]");
     LookFloor0 look=(LookFloor0)i;
@@ -139,25 +141,33 @@ class Floor0 extends FuncFloor{
           lsp=new float[look.m];
         }	  
         else{
-          for(int j=0; j<look.m; j++)lsp[j]=0.f;
+          for(int j=0; j<look.m; j++){
+        	  lsp[j]=0.f;
+          }
         }
 
 	CodeBook b=vb.vd.fullbooks[info.books[booknum]];
 	float last=0.f;
 
 	//memset(out,0,sizeof(float)*look->m);
-        for(int j=0; j<look.m; j++)out[j]=0.0f;
+        for(int j=0; j<look.m; j++){
+        	out[j]=0.0f;
+        }
 
         for(int j=0;j<look.m;j+=b.dim){
 	  if(b.decodevs(lsp, j, vb.opb, 1, -1)==-1){
 	    //goto eop;
 	    // memset(out,0,sizeof(float)*look->n);
-            for(int k=0; k<look.n; k++)out[k]=0.0f;
+            for(int k=0; k<look.n; k++){
+            	out[k]=0.0f;
+            }
 	    return(0);
 	  }
 	}
 	for(int j=0;j<look.m;){
-	  for(int k=0;k<b.dim;k++,j++)lsp[j]+=last;
+	  for(int k=0;k<b.dim;k++,j++){
+		  lsp[j]+=last;
+	  }
 	  last=lsp[j-1];
 	}
 	// take the coefficients back to a spectral envelope curve
@@ -203,7 +213,9 @@ class Floor0 extends FuncFloor{
           lsp=new float[look.m+1];
         }	  
         else{
-          for(int j=0; j<lsp.length; j++)lsp[j]=0.f;
+          for(int j=0; j<lsp.length; j++){
+        	  lsp[j]=0.f;
+          }
         }
 
         for(int j=0;j<look.m;j+=b.dim){
@@ -214,7 +226,9 @@ class Floor0 extends FuncFloor{
 	}
 
 	for(int j=0;j<look.m;){
-	  for(int k=0;k<b.dim;k++,j++)lsp[j]+=last;
+	  for(int k=0;k<b.dim;k++,j++){
+		  lsp[j]+=last;
+	  }
 	  last=lsp[j-1];
 	}
         lsp[look.m]=amp;
@@ -259,7 +273,9 @@ class Floor0 extends FuncFloor{
   }
 
   static void lsp_to_lpc(float[] lsp, float[] lpc, int m){ 
-    int i,j,m2=m/2;
+    int i;
+    int j;
+    int m2=m/2;
     float[] O=new float[m2];
     float[] E=new float[m2];
     float A;
@@ -313,12 +329,16 @@ class Floor0 extends FuncFloor{
 
     if(amp==0){
       //memset(curve,0,sizeof(float)*l->n);
-      for(int j=0; j<l.n; j++)curve[j]=0.0f;
+      for(int j=0; j<l.n; j++){
+    	  curve[j]=0.0f;
+      }
       return;
     }
     l.lpclook.lpc_to_curve(lcurve,lpc,amp);
 
-    for(int i=0;i<l.n;i++)curve[i]=lcurve[l.linearmap[i]];
+    for(int i=0;i<l.n;i++){
+    	curve[i]=lcurve[l.linearmap[i]];
+    }
   }
 }
 

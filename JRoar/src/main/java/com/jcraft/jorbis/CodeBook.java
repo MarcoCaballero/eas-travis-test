@@ -35,6 +35,8 @@ class CodeBook{
   float[] valuelist; // list of dim*entries actual entry values
   int[] codelist;     // list of bitstream codewords for each entry
   DecodeAux decode_tree;
+  
+  private int[] t=new int[15];  // decodevs_add is synchronized for re-using t.
 
   // returns the number of bits
   int encode(int a, Buffer b){
@@ -72,19 +74,19 @@ class CodeBook{
     }
     return(encode(best,b));
   }
-
-  // res0 (multistage, interleave, lattice)
   // returns the number of bits and *modifies a* to the remainder value
   int encodevs(float[] a, Buffer b, int step,int addmul){
     int best=besterror(a,step,addmul);
     return(encode(best,b));
   }
 
-  private int[] t=new int[15];  // decodevs_add is synchronized for re-using t.
+ 
   synchronized int decodevs_add(float[]a, int offset, Buffer b, int n){
     int step=n/dim;
     int entry;
-    int i,j,o;
+    int i;
+    int j;
+    int o;
 
     if(t.length<step){
       t=new int[step];
@@ -105,7 +107,9 @@ class CodeBook{
   }
 
   int decodev_add(float[]a, int offset, Buffer b,int n){
-    int i,j,entry;
+    int i;
+    int j;
+    int entry;
     int t;
 
     if(dim>8){
@@ -150,7 +154,9 @@ class CodeBook{
   }
 
   int decodev_set(float[] a,int offset, Buffer b, int n){
-    int i,j,entry;
+    int i;
+    int j;
+    int entry;
     int t;
 
     for(i=0;i<n;){
@@ -165,7 +171,10 @@ class CodeBook{
   }
 
   int decodevv_add(float[][] a, int offset,int ch, Buffer b,int n){
-    int i,j,k,entry;
+    int i;
+    int j;
+    int k;
+    int entry;
     int chptr=0;
     //System.out.println("decodevv_add: a="+a+",b="+b+",valuelist="+valuelist);
 
@@ -237,16 +246,19 @@ class CodeBook{
     if(entry==-1)return(-1);
     switch(addmul){
     case -1:
-      for(int i=0,o=0;i<dim;i++,o+=step)
-	a[index+o]=valuelist[entry*dim+i];
+      for(int i=0, o=0;i<dim;i++,o+=step){
+    	  a[index+o]=valuelist[entry*dim+i];
+      }
       break;
     case 0:
-      for(int i=0,o=0;i<dim;i++,o+=step)
-	a[index+o]+=valuelist[entry*dim+i];
+      for(int i=0,o=0;i<dim;i++,o+=step){
+    	  a[index+o]+=valuelist[entry*dim+i];
+      }
       break;
     case 1:
-      for(int i=0,o=0;i<dim;i++,o+=step)
-	a[index+o]*=valuelist[entry*dim+i];
+      for(int i=0,o=0;i<dim;i++,o+=step){
+    	  a[index+o]*=valuelist[entry*dim+i];
+      }
       break;
     default:
       //System.err.println("CodeBook.decodeves: addmul="+addmul); 
@@ -328,8 +340,9 @@ class CodeBook{
     int best=best(a,step);
     switch(addmul){
     case 0:
-      for(int i=0,o=0;i<dim;i++,o+=step)
-	a[o]-=valuelist[best*dim+i];
+      for(int i=0,o=0;i<dim;i++,o+=step){
+    	  a[o]-=valuelist[best*dim+i];
+      }
       break;
     case 1:
       for(int i=0,o=0;i<dim;i++,o+=step){
