@@ -21,32 +21,33 @@
  */
 
 package com.jcraft.jroar;
+
 import java.io.*;
 import java.net.*;
 import java.util.*;
 
 class UDPSource extends Source {
-  byte[] foo=new byte[0];
-  UDPBroadcast b=null;
-  UDPSource(UDPBroadcast b, String mpoint) {
-    super(mpoint);
-    this.b=b;
-  }
+	byte[] foo = new byte[0];
+	UDPBroadcast b = null;
 
-  synchronized void addListener(Client c){
-    super.addListener(c);
-    Vector http_header=new Vector();
-    http_header.addElement("HTTP/1.0 200 OK" );
-    http_header.addElement("udp-port: "+b.port);
-    http_header.addElement("udp-broadcast-address: "+b.baddress);
-    http_header.addElement("Content-Type: application/x-ogg");
+	UDPSource(UDPBroadcast b, String mpoint) {
+		super(mpoint);
+		this.b = b;
+	}
 
-    try{
-      c.write(http_header, b.header, foo, 0, 0, foo, 0, 0);
-      c.close();
-    }
-    catch(Exception e){
-    }
-    removeListener(c);
-  }
+	synchronized void addListener(Client c) {
+		super.addListener(c);
+		Vector http_header = new Vector();
+		http_header.addElement("HTTP/1.0 200 OK");
+		http_header.addElement("udp-port: " + b.port);
+		http_header.addElement("udp-broadcast-address: " + b.baddress);
+		http_header.addElement("Content-Type: application/x-ogg");
+
+		try {
+			c.write(http_header, b.header, foo, 0, 0, foo, 0, 0);
+			c.close();
+		} catch (Exception e) {
+		}
+		removeListener(c);
+	}
 }
