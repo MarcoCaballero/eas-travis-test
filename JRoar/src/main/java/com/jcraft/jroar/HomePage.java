@@ -22,14 +22,11 @@
 
 package com.jcraft.jroar;
 
-import java.lang.*;
 import java.io.*;
-import java.net.*;
 import java.util.*;
 
 class HomePage extends Page {
 
-	private static final int REFRESH = 60;
 	private static int count = 0;
 	private static final String _http = "http://";
 

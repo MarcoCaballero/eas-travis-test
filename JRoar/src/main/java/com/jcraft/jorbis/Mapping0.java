@@ -25,7 +25,7 @@
 
 package com.jcraft.jorbis;
 
-import com.jcraft.jogg.*;
+import com.jcraft.jogg.Buffer;
 
 class Mapping0 extends FuncMapping {
 	static int seq = 0;
@@ -353,7 +353,7 @@ class LookMapping0 {
 	Object[] floor_look;
 	Object[] floor_state;
 	Object[] residue_look;
-	//PsyLook[] psy_look;
+	// PsyLook[] psy_look;
 
 	FuncTime[] time_func;
 	FuncFloor[] floor_func;

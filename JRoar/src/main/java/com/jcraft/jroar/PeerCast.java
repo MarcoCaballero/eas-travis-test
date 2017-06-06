@@ -22,10 +22,8 @@
 
 package com.jcraft.jroar;
 
-import java.lang.*;
 import java.io.*;
 import java.net.*;
-import java.util.*;
 
 class PeerCast {
 	static String lookupHost = "localhost:7144";
