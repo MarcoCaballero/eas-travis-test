@@ -22,8 +22,8 @@
 
 package com.jcraft.jroar;
 
-import java.io.*;
-import java.net.*;
+import java.io.InputStream;
+import java.io.ByteArrayOutputStream;
 import java.util.*;
 
 import com.jcraft.jogg.*;

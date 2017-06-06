@@ -22,7 +22,8 @@
 
 package com.jcraft.jroar;
 
-import java.util.*;
+import java.util.Hashtable;
+import java.util.Vector;
 import java.io.*;
 import com.jcraft.jorbis.*;
 import com.jcraft.jogg.*;

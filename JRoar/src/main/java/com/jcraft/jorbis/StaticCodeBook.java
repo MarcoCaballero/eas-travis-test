@@ -25,7 +25,7 @@
 
 package com.jcraft.jorbis;
 
-import com.jcraft.jogg.*;
+import com.jcraft.jogg.Buffer;
 
 class StaticCodeBook {
 	int dim; // codebook dimensions (elements per vector)
@@ -424,7 +424,6 @@ class StaticCodeBook {
 
 	static float float32_unpack(int val) {
 		float mant = val & 0x1fffff;
-		float sign = val & 0x80000000;
 		float exp = (val & 0x7fe00000) >>> VQ_FMAN;
 		if ((val & 0x80000000) != 0)
 			mant = -mant;

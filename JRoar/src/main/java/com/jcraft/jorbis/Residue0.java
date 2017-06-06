@@ -25,7 +25,7 @@
 
 package com.jcraft.jorbis;
 
-import com.jcraft.jogg.*;
+import com.jcraft.jogg.Buffer;
 
 class Residue0 extends FuncResidue {
 	static int[][][] partword = new int[2][][]; // _01inverse is synchronized
@@ -248,7 +248,6 @@ class Residue0 extends FuncResidue {
 
 	static int _2inverse(Block vb, Object vl, float[][] in, int ch) {
 		int i;
-		int j;
 		int k;
 		int l;
 		int s;

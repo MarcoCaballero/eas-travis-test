@@ -22,14 +22,14 @@
 
 package com.jcraft.jroar;
 
-import java.util.*;
+import java.util.Vector;
+import java.util.Hashtable;
+import java.util.Enumeration;
 import java.net.*;
 import java.io.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.applet.*;
-
-import com.jcraft.jogg.*;
 
 public class JRoar extends Applet implements Runnable {
 	static final String version = "0.0.9";

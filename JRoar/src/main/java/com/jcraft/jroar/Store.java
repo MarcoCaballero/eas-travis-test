@@ -22,11 +22,11 @@
 
 package com.jcraft.jroar;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ByteArrayOutputStream;
 import java.net.*;
 import java.util.*;
-
-import com.jcraft.jogg.*;
 
 class Store extends Page {
 	String source = null;

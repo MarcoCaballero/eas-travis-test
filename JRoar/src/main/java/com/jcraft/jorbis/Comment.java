@@ -25,14 +25,14 @@
 
 package com.jcraft.jorbis;
 
-import com.jcraft.jogg.*;
+import com.jcraft.jogg.Buffer;
+import com.jcraft.jogg.Packet;
 
 // the comments are not part of vorbis_info so that vorbis_info can be
 // static storage
 public class Comment {
 	private static byte[] _vorbis = "vorbis".getBytes();
 
-	private static final int OV_EFAULT = -129;
 	private static final int OV_EIMPL = -130;
 
 	// unlimited user comment fields. libvorbis writes 'libvorbis'

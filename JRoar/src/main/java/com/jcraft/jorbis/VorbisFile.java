@@ -25,7 +25,10 @@
 
 package com.jcraft.jorbis;
 
-import com.jcraft.jogg.*;
+import com.jcraft.jogg.Packet;
+import com.jcraft.jogg.Page;
+import com.jcraft.jogg.SyncState;
+import com.jcraft.jogg.StreamState;
 
 import java.io.InputStream;
 import java.io.IOException;

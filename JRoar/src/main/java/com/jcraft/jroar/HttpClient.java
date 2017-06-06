@@ -22,7 +22,7 @@
 
 package com.jcraft.jroar;
 
-import java.io.*;
+import java.io.IOException;
 import java.util.*;
 
 class HttpClient extends Client {

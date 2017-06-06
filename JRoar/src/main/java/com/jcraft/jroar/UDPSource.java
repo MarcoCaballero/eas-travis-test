@@ -22,8 +22,6 @@
 
 package com.jcraft.jroar;
 
-import java.io.*;
-import java.net.*;
 import java.util.*;
 
 class UDPSource extends Source {
