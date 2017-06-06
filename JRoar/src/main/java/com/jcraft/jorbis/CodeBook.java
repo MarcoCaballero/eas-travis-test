@@ -74,8 +74,6 @@ class CodeBook{
     }
     return(encode(best,b));
   }
-
-  // res0 (multistage, interleave, lattice)
   // returns the number of bits and *modifies a* to the remainder value
   int encodevs(float[] a, Buffer b, int step,int addmul){
     int best=besterror(a,step,addmul);

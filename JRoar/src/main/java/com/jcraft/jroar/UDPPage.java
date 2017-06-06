@@ -21,42 +21,38 @@
  */
 
 package com.jcraft.jroar;
+
 import java.lang.*;
 import java.io.*;
 import java.net.*;
 import java.util.*;
 
-class UDPPage extends Page{
-  static void register(){
-    register("/udp", UDPPage.class.getName());
-  }
-  public void kick(MySocket ms, Hashtable vars, Vector h) throws IOException{
-    String srcmpoint=(String)vars.get("srcmpoint");
-    String _port=(String)vars.get("port");
-    String baddress=(String)vars.get("baddress");
-    String dstmpoint=(String)vars.get("dstmpoint");
-    String passwd=(String)vars.get("passwd");
-    if(passwd==null || !passwd.equals(JRoar.passwd)){
-      forward(ms, "/");
-      return;
-    }
+class UDPPage extends Page {
+	static void register() {
+		register("/udp", UDPPage.class.getName());
+	}
 
-    int port=0;
-    try{ port=Integer.parseInt(_port);}
-    catch(Exception e){ }
-    if(srcmpoint!=null && 
-       srcmpoint.length()>0 && 
-       Source.getSource(srcmpoint)!=null &&
-       port!=0 &&
-       baddress!=null && baddress.length()>0 &&
-       Page.map(dstmpoint)==null &&
-       dstmpoint!=null && 
-       dstmpoint.startsWith("/")){
-      UDPBroadcast u=new UDPBroadcast(srcmpoint,
-  				      baddress,
-				      port,
-				      dstmpoint);
-    }
-    forward(ms, "/");
-  }
+	public void kick(MySocket ms, Hashtable vars, Vector h) throws IOException {
+		String srcmpoint = (String) vars.get("srcmpoint");
+		String _port = (String) vars.get("port");
+		String baddress = (String) vars.get("baddress");
+		String dstmpoint = (String) vars.get("dstmpoint");
+		String passwd = (String) vars.get("passwd");
+		if (passwd == null || !passwd.equals(JRoar.passwd)) {
+			forward(ms, "/");
+			return;
+		}
+
+		int port = 0;
+		try {
+			port = Integer.parseInt(_port);
+		} catch (Exception e) {
+		}
+		if (srcmpoint != null && srcmpoint.length() > 0 && Source.getSource(srcmpoint) != null && port != 0
+				&& baddress != null && baddress.length() > 0 && Page.map(dstmpoint) == null && dstmpoint != null
+				&& dstmpoint.startsWith("/")) {
+			UDPBroadcast u = new UDPBroadcast(srcmpoint, baddress, port, dstmpoint);
+		}
+		forward(ms, "/");
+	}
 }
