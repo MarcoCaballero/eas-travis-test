@@ -2,11 +2,7 @@ language: java
 
 services: docker
   
-before_script:
-- cd JRoar
-- mvn clean package docker:build
+before_script: cd JRoar
 
-script: docker run -p 9000:9000 --name eas-jroar-container eas/jcraft
-
-after_script: docker stop eas/jcraft
+script: mvn clean package docker:build
   
